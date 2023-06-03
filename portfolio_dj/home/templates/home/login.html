@@ -9,15 +9,15 @@
         <link rel="stylesheet" href="">
     </head>
     <body>
-        <h1>Home page</h1>
-        {% if user.is_authenticated %}
-        <a href="/logout">logout</a>
-        <a href="/input/portfolio">add projects</a>
-        <a href="/input/job">add job requirements</a>
-        <a href="/output/portfolio">generate portfolio</a>
-        {% else %}
-        <a href="/login">login</a>
-        {%endif%}
+        <h1>Login page</h1>
+        login form
+
+        <form action="{% url 'login' %}" method="post">
+            <input type="text" name="username" placeholder="username">
+            <input type="password" name="password" placeholder="password">
+            <input type="submit" value="login">
+        </form>
+
 
     </body>
 </html>
