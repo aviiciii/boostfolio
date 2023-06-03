@@ -5,6 +5,9 @@ from django.contrib.auth import authenticate, login, logout
 
 from .models import Projects, Jobs
 
+import openai
+import os
+
 # Create your views here.
 
 def home(request):
@@ -95,4 +98,32 @@ def job_input(request):
     return render(request, 'home/input_job.html', {})
 
 def output(request):
+    
+    # get api key from env
+    
+    openai.api_key = os.environ['OPENAI_API_KEY']
+
+
+    # get the user's projects and jobs
+    user = request.user
+    projects = Projects.objects.filter(username=user)
+    jobs = Jobs.objects.filter(username=user)
+
+    # create the prompt
+    project_desc = ''
+    job_desc = ''
+    prompt = ''
+
+
+    response = openai.Completion.create(
+        engine='text-davinci-003',  # Specify the model you want to use
+        prompt='What is god?',  # Input prompt or message
+        max_tokens=10  # Maximum length of the response
+    )
+
+    output = response.choices[0].text.strip()
+
+    print(output)
+
+
     return render(request, 'home/output.html', {})
