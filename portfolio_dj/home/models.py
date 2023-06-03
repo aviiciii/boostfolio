@@ -27,4 +27,4 @@ class Jobs(models.Model):
     requirements = models.TextField()
 
     def __str__(self):
-        return self.name
+        return self.company
