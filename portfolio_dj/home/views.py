@@ -78,12 +78,12 @@ def job_input(request):
         print(request.POST)
         user = request.user
 
-        name = request.POST['job_name']
+        company = request.POST['job_company']
         position = request.POST['job_position']
         description = request.POST['job_description']
         requirements = request.POST['job_requirements']
 
-        new = Jobs.objects.create(name=name, position=position, username=user, description=description, requirements=requirements)
+        new = Jobs.objects.create(company=company, position=position, username=user, description=description, requirements=requirements)
         new.save()
 
         print('Job item created')
