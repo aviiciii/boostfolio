@@ -99,57 +99,68 @@ def job_input(request):
 
 def output(request):
     
-    # get api key from env
-    
-    # openai.api_key = os.environ['OPENAI_API_KEY']
+    if request.method == 'POST':
+        # get post data
+        job_id = request.POST['job_id']
+
+        # get the job
+        job = Jobs.objects.get(id=job_id)
+
+        
 
 
-    # get the user's projects and jobs
-    user = request.user
-    projects = Projects.objects.filter(username=user)
-    jobs = Jobs.objects.filter(username=user)
+        # get the user's projects and jobs
+        user = request.user
+        projects = Projects.objects.filter(username=user)
 
 
 
-    user_desc = f'My name is Givani Georgo. I am a front-end developer based on MERN Stack. \n'
-    
+        user_desc = f'My name is Givani Georgo. I am a front-end developer based on MERN Stack. \n'
+        
 
-    
-    project_desc = 'My projects are: \n'
-    for project in projects:
-        this_project = f'{project.id}. {project.name} - {project.description} \n'
-        project_desc += this_project
+        
+        project_desc = 'My projects are: \n'
+        for project in projects:
+            this_project = f'{project.id}. {project.name} - {project.description} \n'
+            project_desc += this_project
 
 
-    # create the prompt
-    
-    for job in jobs:
+        # create the prompt
+        
         job_desc = f'I am applying for {job.position} . \n'
         job_desc += f'The description for this job are: {job.description} . \n'
         job_desc += f'The requirements for this job are: {job.requirements} . \n'
 
-    question = 'Help me select the best projects to feature for this job.'
+        question = 'Help me select the best projects to feature for this job.'
 
-    prompt = user_desc + project_desc + job_desc + question
+        prompt = user_desc + project_desc + job_desc + question
 
-    print('\n\n')
+        print('\n\n')
 
-    print(prompt)
+        print(prompt)
 
-    print('\n\n')
+        print('\n\n')
 
-    # response = openai.Completion.create(
-    #     engine='text-davinci-003',  # Specify the model you want to use
-    #     prompt='What is god?',  # Input prompt or message
-    #     max_tokens=10  # Maximum length of the response
-    # )
+        # get api key from env
+        
+        # openai.api_key = os.environ['OPENAI_API_KEY']
+        
+        # response = openai.Completion.create(
+        #     engine='text-davinci-003',  # Specify the model you want to use
+        #     prompt='What is god?',  # Input prompt or message
+        #     max_tokens=10  # Maximum length of the response
+        # )
 
-    # output = response.choices[0].text.strip()
+        # output = response.choices[0].text.strip()
 
-    print(output)
+        print(output)
 
+    jobs = Jobs.objects.filter(username=request.user)
 
-    return render(request, 'home/output.html', {})
+    context = {
+        'jobs': jobs,
+    }
+    return render(request, 'home/output.html', context)
 
 
 @csrf_exempt
