@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>add jobs</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <!-- create a form to add jobs to portfolio -->
+        <form action="{% url 'job_input' %}" method="post">
+
+            <label for="job_name">Job Name</label>
+            <input type="text" name="job_name" id="job_name"> <br>
+
+            <label for="job_position">Job Position</label>
+            <input type="text" name="job_position" id="job_position"> <br>
+
+            <label for="job_description">Job Description</label>
+            <textarea type="text" name="job_description" id="job_description"> </textarea> <br>
+
+            <label for="job_req">Job Requirements</label>
+            <textarea type="text" name="job_requirements" id="job_requirements"> </textarea> <br>
+                
+            <input type="submit" value="Add job">
+
+        </form>
+
+    </body>
+</html>

@@ -16,3 +16,15 @@ class Projects(models.Model):
 
     def __str__(self):
         return self.name
+    
+
+class Jobs(models.Model):
+    id = models.AutoField(primary_key=True)
+    username = models.ForeignKey(User, on_delete=models.CASCADE)
+    name= models.CharField(max_length=100)
+    position = models.CharField(max_length=100)
+    description = models.TextField()
+    requirements = models.TextField()
+
+    def __str__(self):
+        return self.name

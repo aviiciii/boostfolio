@@ -3,7 +3,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 
-from .models import Projects
+from .models import Projects, Jobs
 
 # Create your views here.
 
@@ -72,8 +72,27 @@ def portfolio_input(request):
 
     return render(request, 'home/input_portfolio.html', {})
 
+@csrf_exempt
 def job_input(request):
-    return render(request, 'home/jobinput.html', {})
+    if request.method == 'POST':
+        print(request.POST)
+        user = request.user
+
+        name = request.POST['job_name']
+        position = request.POST['job_position']
+        description = request.POST['job_description']
+        requirements = request.POST['job_requirements']
+
+        new = Jobs.objects.create(name=name, position=position, username=user, description=description, requirements=requirements)
+        new.save()
+
+        print('Job item created')
+
+
+        return redirect('job_input')
+
+
+    return render(request, 'home/input_job.html', {})
 
 def output(request):
     return render(request, 'home/output.html', {})

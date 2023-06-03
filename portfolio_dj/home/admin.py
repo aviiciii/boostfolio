@@ -2,6 +2,7 @@ from django.contrib import admin
 
 # Register your models here.
 
-from .models import Projects
+from . import models
 
-admin.site.register(Projects)
+admin.site.register(models.Projects)
+admin.site.register(models.Jobs)
