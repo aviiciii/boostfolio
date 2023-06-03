@@ -13,5 +13,7 @@ urlpatterns = [
     path('input/job', views.job_input, name='job_input'),
     path('output', views.output, name='output'),
 
+    path('api/resume', views.resume_api, name='resume_api'),
+
 
 ]
