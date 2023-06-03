@@ -113,6 +113,8 @@ def output(request):
 
     user_desc = f'My name is Givani Georgo. I am a front-end developer based on MERN Stack. \n'
     
+
+    
     project_desc = 'My projects are: \n'
     for project in projects:
         this_project = f'{project.id}. {project.name} - {project.description} \n'
