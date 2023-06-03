@@ -9,7 +9,24 @@
         <link rel="stylesheet" href="">
     </head>
     <body>
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+
+
         <h1>Home page</h1>
-        
+        {% if user.is_authenticated %}
+        <a href="/logout">logout</a>
+        <a href="/input/portfolio">add projects</a>
+        <a href="/input/job">add job requirements</a>
+        <a href="/output/portfolio">generate portfolio</a>
+        {% else %}
+        <a href="/login">login</a>
+        {%endif%}
+
     </body>
 </html>

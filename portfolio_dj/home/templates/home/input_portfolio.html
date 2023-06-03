@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>add projects</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <!-- create a form to add projects to portfolio -->
+        <form action="{% url 'portfolio_input' %}" method="post">
+
+            <label for="project_name">Project Name</label>
+            <input type="text" name="project_name" id="project_name"> <br>
+
+            <label for="project_description">Project Description</label>
+            <textarea type="text" name="project_description" id="project_description"> </textarea> <br>
+
+            <label for="project_link">Project Link</label>
+            <input type="text" name="project_link" id="project_link"> <br>
+
+            <label for="project_image">Project Image URL:</label>
+            <input type="text" name="project_image" id="project_image"> <br>
+
+            <label for="project_date">Project Date of Completion</label>
+            <input type="date" name="project_date" id="project_date"> <br>
+
+
+            <input type="submit" value="Add Project">
+        </form>
+
+    </body>
+</html>
