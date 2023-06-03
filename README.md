@@ -44,3 +44,8 @@ To run a Django project, you need to follow these steps:
    The development server will start running on `http://127.0.0.1:8000/` by default.
 
 Congratulations! You have successfully set up and run your Django project. You can now access your project by opening a web browser and navigating to `http://127.0.0.1:8000/`.
+
+8. Login credentials
+- username: admin
+- password: admin
+
