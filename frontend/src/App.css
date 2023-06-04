@@ -1,0 +1,100 @@
+.App {
+  text-align: center;
+}
+
+.home {
+  width: 100%;
+  background-color: #64A6FF;
+}
+
+.container {
+  width: 65%;
+  background-color: #EAF3FC;
+  margin: auto;
+}
+
+h1 {
+  font-family: Geologica;
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 40px;
+  letter-spacing: 0em;
+  text-align: left;
+
+}
+
+h3 {
+  font-family: Geologica;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 30px;
+  letter-spacing: 0em;
+  text-align: left;
+  margin-bottom: 3rem;
+
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 7rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+label {
+  margin-bottom: 5px;
+  font-family: Geologica;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+input,
+textarea {
+  padding: 5px;
+  margin-bottom: 10px;
+  width: 85%;
+  border-radius: 5px;
+  border: 1px solid grey;
+  height: 1.3rem;
+  /* height: 2rem; */
+}
+
+button {
+  width: 10rem;
+  padding: 10px 20px;
+  background-color: #FFCE21;
+  /* color: #fff; */
+  font-family: Geologica;
+  border: none;
+  cursor: pointer;
+  margin-top: 0.7rem;
+  border-radius: 10px;
+}
+
+.form1-container,.form2-container, .form3-container{
+  width: 80%;
+  margin-bottom: 3rem;
+}
+@media (max-width: 768px) {
+  form {
+    width: 95%; /* Adjust the width for smaller screens */
+  }
+
+  input,
+  textarea {
+    width: 100%; /* Adjust the width for smaller screens */
+  }
+  .container{
+    padding-left: 1rem;
+    width: 90%;
+  }
+}
