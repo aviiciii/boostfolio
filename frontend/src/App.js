@@ -10,7 +10,7 @@ function App() {
       <Navbar />
       <Router>
         <Routes>
-          <Route path="/form" caseSensitive={false} element={<Home />}          />
+          <Route path="/form" caseSensitive={false} element={<Home/>}          />
           <Route exact path="/" caseSensitive={false} element={<Landing />} />
         </Routes>
       </Router>
