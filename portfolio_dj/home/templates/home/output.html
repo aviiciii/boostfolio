@@ -21,6 +21,11 @@
             <input type="submit" value="submit">
         </form>
 
-        
+        <div>
+            {% if output %}
+            <h1>Output</h1>
+            {{output | safe}}
+            {% endif %}
+        </div>
     </body>
 </html>
