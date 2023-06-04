@@ -51,9 +51,9 @@ To get started with BoostFolio, follow these steps:
 
 ## Contributors
 
-- (@aviiciii)[https://github.com/aviiciii] - Backend development
-- (@HetviSoni)[https://github.com/HetviSoni] - Frontend development
-- (@audgeviolin07)[https://github.com/audgeviolin07] - Frontend Development
+- [@aviiciii](https://github.com/aviiciii) - Backend development
+- [@HetviSoni](https://github.com/HetviSoni) - Frontend development
+- [@audgeviolin07](https://github.com/audgeviolin07) - Frontend Development
 - Caroline Jaworsky - Design and UI/UX
 
 
