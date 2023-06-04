@@ -5,13 +5,13 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Output page</title>
+        <title>BoostFolio</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="{% static 'home/style.css' %}">
     </head>
     <body>
-        <h2>Select Job to Generate Portfolio<h2>
+        <h1 id="page_head">Select Job to Generate Portfolio<h1>
         
 
         <form action="/output" method="post">
@@ -21,13 +21,14 @@
                 <option value="{{job.id}}">{{job.company}}- {{job.position}}</option>
                 {% endfor %}
                 
-            </select>
-            <input type="submit" value="submit">
+            </select> 
+            <br>
+            <input type="submit" value="Generate">
         </form>
 
         <div>
             {% if output %}
-            <h1>Output</h1>
+            <h1 id="output">Output</h1>
             {{output | safe}}
             {% endif %}
         </div>

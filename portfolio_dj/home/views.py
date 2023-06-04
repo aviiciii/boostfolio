@@ -153,7 +153,7 @@ def output(request):
         job_desc += f'The requirements for this job are: {job.requirements} . \n'
         job_desc += '\n'
 
-        question = 'Help me select the best projects from my projects to feature for this job and some suggestion for generating the portfolio for the job as per the requirements. \n Give the output in the html to render in the website. \n'
+        question = 'Help me select the best projects from my projects to feature for this job and some suggestion for generating the portfolio for the job as per the requirements. \n Give the output in the html div to render inside a div in the website. \n'
 
         gen_prompt = user_desc + project_desc + job_desc + question
 
