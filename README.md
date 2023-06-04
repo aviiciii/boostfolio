@@ -41,19 +41,25 @@ To get started with BoostFolio, follow these steps:
 1. Clone the repository: `git clone https://github.com/your-username/BoostFolio.git`
 2. Install the required dependencies for both the backend and frontend:
    - Backend (Django): `pip install -r requirements.txt`
-   - Frontend (React.js): `npm install`
+   - Frontend (React.js):(in frontend folder) `npm install`
 3. Set up the database:
    - Create a CockroachDB instance and obtain the connection URL.
    - Configure the connection settings in the Django settings file (`settings.py`).
 4. Run the backend server: `python manage.py runserver`
 5. Run the frontend development server: `npm start`
-6. Access BoostFolio in your web browser at `http://localhost:3000`.
+6. Access BoostFolio in your web browser at `http://localhost:3000`. 
+## Screenshots<img width="960" alt="Screenshot 2023-06-04 173239" src="https://github.com/aviiciii/portfolio/assets/76479104/53a9c2a7-c0aa-43b5-b1bd-5b911572dd99">
+<img width="960" alt="Screenshot 2023-06-04 173328" src="https://github.com/aviiciii/portfolio/assets/76479104/4a3afe87-64ca-4289-a619-29b0f11c85a2">
+
+<img width="410" alt="Screenshot 2023-06-04 173403" src="https://github.com/aviiciii/portfolio/assets/76479104/c234f572-e2c7-4e23-b994-959f63d0eb08">
+<img width="410" alt="Screenshot 2023-06-04 173422" src="https://github.com/aviiciii/portfolio/assets/76479104/e7a0f632-d215-4504-bfc3-5881156c830a">
+
 
 ## Contributors
 
-- (@aviiciii)[https://github.com/aviiciii] - Backend development
-- (@HetviSoni)[https://github.com/HetviSoni] - Frontend development
-- (@audgeviolin07)[https://github.com/audgeviolin07] - Frontend Development
+- [@aviiciii](https://github.com/aviiciii) - Backend development
+- [@HetviSoni](https://github.com/HetviSoni) - Frontend development
+- [@audgeviolin07](https://github.com/audgeviolin07) - Frontend Development
 - Caroline Jaworsky - Design and UI/UX
 
 
