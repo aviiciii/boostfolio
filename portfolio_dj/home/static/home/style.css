@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Geologica&display=swap');
+
+body{
+    background-color: #eaf3fc;
+    font-family: 'Geologica', sans-serif;
+    margin: 30px;
+
+}
+
+h2{
+    font-family: 'Geologica', sans-serif;
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 40px;
+    letter-spacing: 0em;
+}
+
+h1{
+    font-family: 'Geologica', sans-serif;
+    font-size: 36px;
+    font-weight: 500;
+    line-height: 56px;
+    letter-spacing: 0em;
+}
+
+
+p{
+    font-family: 'Geologica', sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0em;
+}

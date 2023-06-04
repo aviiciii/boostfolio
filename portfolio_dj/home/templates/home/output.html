@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -6,10 +8,12 @@
         <title>Output page</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="{% static 'home/style.css' %}">
     </head>
     <body>
-        select job to generate portfolio
+        <h2>Select Job to Generate Portfolio<h2>
+        
+
         <form action="/output" method="post">
             <select name="job_id">
 
