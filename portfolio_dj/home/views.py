@@ -3,7 +3,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 
-from .models import Projects, Jobs
+from .models import Projects, Jobs, Resume
 
 # import openai
 import os
@@ -168,25 +168,46 @@ def output(request):
 @csrf_exempt
 def resume_api(request):
     if request.method == "POST":
-        received_json_data = json.loads(request.body)
-        print(received_json_data)
-        resume =  received_json_data['info']
-
+        resume = request.body.decode('utf-8')
         # have to split the resume into sections
         # education, experience, skills, etc
 
 
-        profile, resume = resume.split('Education')
-        education, resume = resume.split('Experience')
-        experience, resume = resume.split('Skills')
-        skills, resume = resume.split('Projects')
-        
-        resume = f'My profile is: {profile} \n' + f'My education is: {education} \n' + f'My experience is: {experience} \n' + f'My skills are: {skills} \n' + f'My projects are: {resume} \n'
-        resume += f'My experiences are: {experience} \n' + f'My skills are: {skills} \n'
+        profile, resume = resume.split('EDUCATION')
+        education, resume = resume.split('EXPERIENCE')
+        experience, skills = resume.split('SKILLS')
 
-        print(resume)
 
-        print("Resume received")
-        return HttpResponse('Resume received')
+        # print (profile) 
+        # print (education)
+        # print (experience)
+        # print (skills)
+
+        resume = f'My profile is: {profile} \n \n' + f'My education is: {education} \n \n' + f'My experiences are: {experience} \n \n' + f'My skills are: {skills} \n\n'
+
+
+        # save the resume
+        user = request.user
+        if not user.is_authenticated:
+            # get admin user
+            user = User.objects.get(username='admin')
+    
+        try:
+            
+            new = Resume.objects.create(username=user, summary=resume)
+            new.save()
+        except:
+            # update the resume
+            old = Resume.objects.get(username=user)
+            old.resume = resume
+            old.save()
+            
+
+            print('Resume updated')
+            return HttpResponse('Resume updated')
+
+
+        print("Resume received and saved")
+        return HttpResponse('Resume received and saved')
 
     return HttpResponse('Use post to send resume')

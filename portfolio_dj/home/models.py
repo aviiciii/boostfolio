@@ -36,4 +36,4 @@ class Resume(models.Model):
     summary = models.TextField()
 
     def __str__(self):
-        return self.name
+        return f'{self.id}'
