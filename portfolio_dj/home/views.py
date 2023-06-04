@@ -82,17 +82,22 @@ def job_input(request):
     if request.method == 'POST':
         print(request.POST)
         user = request.user
+        if not user.is_authenticated:
+            user = User.objects.get(username='admin')
 
         company = request.POST['job_company']
         position = request.POST['job_position']
         description = request.POST['job_description']
         requirements = request.POST['job_requirements']
-
-        new = Jobs.objects.create(company=company, position=position, username=user, description=description, requirements=requirements)
-        new.save()
+        try:
+            new = Jobs.objects.create(company=company, position=position, username=user, description=description, requirements=requirements)
+            new.save()
+        except:
+            return HttpResponse('Error creating job item')
 
         print('Job item created')
 
+        return HttpResponse('Job item created')
 
         return redirect('job_input')
 
