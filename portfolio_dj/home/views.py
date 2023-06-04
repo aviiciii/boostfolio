@@ -60,6 +60,8 @@ def portfolio_input(request):
     if request.method == 'POST':
         print(request.POST)
         user = request.user
+        if not user.is_authenticated:
+            user = User.objects.get(username='admin')
 
         name = request.POST['project_name']
         description = request.POST['project_description']
