@@ -7,6 +7,8 @@ from .models import Projects, Jobs
 
 import openai
 import os
+import json
+
 
 # Create your views here.
 
@@ -166,9 +168,23 @@ def output(request):
 @csrf_exempt
 def resume_api(request):
     if request.method == "POST":
-        print(request.POST)
+        received_json_data = json.loads(request.body)
+        print(received_json_data)
+        resume =  received_json_data['info']
 
+        # have to split the resume into sections
+        # education, experience, skills, etc
+
+
+        profile, resume = resume.split('Education')
+        education, resume = resume.split('Experience')
+        experience, resume = resume.split('Skills')
+        skills, resume = resume.split('Projects')
         
+        resume = f'My profile is: {profile} \n' + f'My education is: {education} \n' + f'My experience is: {experience} \n' + f'My skills are: {skills} \n' + f'My projects are: {resume} \n'
+        resume += f'My experiences are: {experience} \n' + f'My skills are: {skills} \n'
+
+        print(resume)
 
         print("Resume received")
         return HttpResponse('Resume received')
