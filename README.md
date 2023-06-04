@@ -1,51 +1,59 @@
-# portfolio
+# BoostFolio
 
+BoostFolio is a web-based platform designed to enhance personal portfolios and assist users in tailoring their portfolios to specific job opportunities. It analyzes portfolios and CVs against job descriptions, providing tailored suggestions for improvement to boost users' prospects and help them achieve their career goals.
 
-To run a Django project, you need to follow these steps:
+## Inspiration
 
-1. Clone the repo and in the base dir
+The idea for BoostFolio originated from a challenge presented at a Hackathon, which focused on enhancing personal portfolios and aiding users in improving theirs. With diverse ideas and interests, it can be challenging to identify which projects will resonate most with potential employers who value different aspects. Furthermore, each job requires a unique approach, making the task of tailoring portfolios crucial.
 
-2. Run the following command to create a virtual environment:
-   ```
-   python -m venv env
-   ```
-   This will create a new directory named `env` that contains the virtual environment files.
+## Features
 
-3. Activate the Virtual Environment: After creating the virtual environment, you need to activate it. The commands to activate the virtual environment vary depending on your operating system:
-   - On Windows:
-     ```
-     .\env\Scripts\activate
-     ```
-   - On macOS and Linux:
-     ```
-     source env/bin/activate
-     ```
+- Portfolio analysis: BoostFolio analyzes users' portfolios and CVs, comparing them against the job description of their desired role. This analysis helps users understand how well their skills and projects align with the job opportunity.
 
-4. Install Django: Once the virtual environment is activated, you can install Django using the package manager called pip. Run the following command to install Django:
-   ```
-   pip install Django
-   ```
-5. Cd onto the Django directory:
-  ```
-  cd portfolio_dj
-  ```
+- Tailored suggestions: Based on the portfolio analysis, BoostFolio provides personalized suggestions for improvement. These suggestions guide users in optimizing their portfolios to present their skills and projects in the most attractive light for each unique job opportunity.
 
+- Seamless integration: BoostFolio seamlessly integrates Django, React.js, and CockroachDB to provide a robust and efficient platform for users. Django handles the backend logic and connects with the frontend user interactions, which are designed using Figma. React.js and static HTML are used for frontend development, ensuring a responsive and user-friendly interface. The database is hosted on the cloud using CockroachDB, ensuring secure and scalable storage of user data.
 
-6. Apply Migrations: Django uses migrations to manage database schema changes. You need to apply the initial migrations to create the necessary database tables. In the terminal or command prompt, navigate to your project's directory (where the `manage.py` file is located) and run the following command:
-   ```
-   python manage.py migrate
-   ```
-   Run the above command once and then only when we make changes to the databases
+## Technologies Used
 
-7. Run the Development Server: Finally, you can start the Django development server to run your project. In the terminal or command prompt, navigate to your project's directory and run the following command:
-   ```
-   python manage.py runserver
-   ```
-   The development server will start running on `http://127.0.0.1:8000/` by default.
+- Django: A Python web framework used for executing backend logic and connecting with frontend user interactions.
 
-Congratulations! You have successfully set up and run your Django project. You can now access your project by opening a web browser and navigating to `http://127.0.0.1:8000/`.
+- React.js: A JavaScript library for building user interfaces, used for frontend development and creating a responsive user experience.
 
-8. Login credentials
-- username: admin
-- password: admin
+- Figma: A web-based design tool used for designing the frontend user interface and interactions.
+
+- CockroachDB: A distributed SQL database used for hosting the application's database on the cloud. It provides scalability and reliability for storing user data.
+
+## Challenges
+
+During the development of BoostFolio, the team encountered several challenges, including:
+
+- Integrating Django and React.js: Django does not have native support for React.js integration, leading to technical difficulties in connecting the backend and frontend frameworks. The team had to find workarounds and implement effective solutions to ensure seamless integration between the two.
+
+- Centralized database management: Managing a centralized database posed a challenge, requiring careful design and implementation to handle user data securely and efficiently.
+
+- Parsing and structuring data from PDF files: Extracting data from PDF files can be complex due to the various formatting and structure possibilities. The team faced challenges in accurately parsing and structuring the data extracted from PDF files.
+
+## Getting Started
+
+To get started with BoostFolio, follow these steps:
+
+1. Clone the repository: `git clone https://github.com/your-username/BoostFolio.git`
+2. Install the required dependencies for both the backend and frontend:
+   - Backend (Django): `pip install -r requirements.txt`
+   - Frontend (React.js): `npm install`
+3. Set up the database:
+   - Create a CockroachDB instance and obtain the connection URL.
+   - Configure the connection settings in the Django settings file (`settings.py`).
+4. Run the backend server: `python manage.py runserver`
+5. Run the frontend development server: `npm start`
+6. Access BoostFolio in your web browser at `http://localhost:3000`.
+
+## Contributors
+
+- (@aviiciii)[https://github.com/aviiciii] - Backend development
+- (@HetviSoni)[https://github.com/HetviSoni] - Frontend development
+- (@audgeviolin07)[https://github.com/audgeviolin07] - Frontend Development
+- Caroline Jaworsky - Design and UI/UX
+
 
