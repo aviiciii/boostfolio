@@ -28,3 +28,12 @@ class Jobs(models.Model):
 
     def __str__(self):
         return self.company
+    
+
+class Resume(models.Model):
+    id = models.AutoField(primary_key=True)
+    username = models.ForeignKey(User, on_delete=models.CASCADE)
+    summary = models.TextField()
+
+    def __str__(self):
+        return self.name

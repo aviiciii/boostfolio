@@ -6,3 +6,4 @@ from . import models
 
 admin.site.register(models.Projects)
 admin.site.register(models.Jobs)
+admin.site.register(models.Resume)
