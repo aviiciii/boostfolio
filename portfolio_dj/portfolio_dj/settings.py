@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'portfolio_dj.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.config(default=os.environ['DATABASE_URL'], 
+    'default': dj_database_url.config(default='postgresql://hyp-hacks:vtR1GCH-XXpPhfd6mS5Haw@fake-rat-66.jxf.cockroachlabs.cloud:26257/defaultdb?sslmode=verify-full', 
     engine='django_cockroachdb')
 }
 

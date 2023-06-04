@@ -5,7 +5,7 @@ from django.contrib.auth import authenticate, login, logout
 
 from .models import Projects, Jobs
 
-import openai
+# import openai
 import os
 import json
 
