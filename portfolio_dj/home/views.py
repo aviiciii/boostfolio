@@ -108,7 +108,11 @@ def job_input(request):
 
 @csrf_exempt
 def output(request):
-    
+    jobs = Jobs.objects.filter(username=request.user)
+
+    context = {
+        'jobs': jobs,
+    }
     if request.method == 'POST':
         # get post data
         job_id = request.POST['job_id']
@@ -124,8 +128,12 @@ def output(request):
         projects = Projects.objects.filter(username=user)
 
 
+        # get latest resume summary
+        user_desc = Resume.objects.filter(username=user).last().summary
 
-        user_desc = Resume.objects.get(username=user).summary
+
+        # user_desc = Resume.objects.get(username=user).summary
+
 
         
         project_desc = 'My projects are: \n'
@@ -135,6 +143,7 @@ def output(request):
             this_project = f'{i}. {project.name} - {project.description} \n'
             project_desc += this_project
 
+        i = 0
         project_desc += '\n'
 
         # create the prompt
@@ -144,7 +153,7 @@ def output(request):
         job_desc += f'The requirements for this job are: {job.requirements} . \n'
         job_desc += '\n'
 
-        question = 'Help me select the best projects from my projects to feature for this job (give the projects by name) and few suggestions on tweaking the portfolio for the job as per the requirements. Give the output in the html. \n'
+        question = 'Help me select the best projects from my projects to feature for this job and few suggestions on tweaking the portfolio for the job as per the requirements. \n Give the output in the html to render in the website. \n'
 
         gen_prompt = user_desc + project_desc + job_desc + question
 
@@ -161,20 +170,18 @@ def output(request):
         response = openai.Completion.create(
             engine='text-davinci-003',  # Specify the model you want to use
             prompt=gen_prompt,  # Input prompt or message
-            max_tokens=400  # Maximum length of the response
+            max_tokens=500  # Maximum length of the response
         )
 
         output = response.choices[0].text.strip()
 
         print("OUTPUT:", output)
 
-        return render(request, 'home/output.html', {'output': output})
+        context['output'] = output
 
-    jobs = Jobs.objects.filter(username=request.user)
+        return render(request, 'home/output.html', context)
 
-    context = {
-        'jobs': jobs,
-    }
+    
     return render(request, 'home/output.html', context)
 
 
