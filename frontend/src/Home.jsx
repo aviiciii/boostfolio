@@ -1,10 +1,85 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { Document, Page, pdfjs } from 'react-pdf';
 
+pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 const Home = () => {
+    const [selectedFile, setSelectedFile] = useState(null);
+    const [numPages, setNumPages] = useState(1);
+    const [resumeText, setResumeText] = useState('');
+    const [loading, setLoading] = useState(false);
+
+    const handleFileChange = (event) => {
+        setSelectedFile(event.target.files[0]);
+    };
+
+    const handleDocumentLoadSuccess = ({ numPages }) => {
+        setNumPages(numPages);
+    };
+
+    const handleTextExtraction = async () => {
+        try {
+            if (!selectedFile) {
+                return;
+            }
+
+            setLoading(true);
+
+            const fileReader = new FileReader();
+            fileReader.onloadend = async () => {
+                const typedArray = new Uint8Array(fileReader.result);
+                try {
+                    const pdf = await pdfjs.getDocument(typedArray).promise;
+                    const page = await pdf.getPage(1);
+                    const textContent = await page.getTextContent();
+                    const extractedText = textContent.items.map((item) => item.str).join(' ');
+
+                    setResumeText(extractedText);
+                } catch (error) {
+                    console.error('Error occurred while extracting resume details:', error);
+                } finally {
+                    setLoading(false);
+                }
+            };
+
+            fileReader.readAsArrayBuffer(selectedFile);
+        } catch (error) {
+            console.error('Error occurred while extracting resume details:', error);
+        }
+    };
+
+    useEffect(() => {
+        handleTextExtraction();
+    }, [selectedFile]);
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+
+        if (resumeText) {
+            try {
+                setLoading(true);
+                const response = await fetch('http://127.0.0.1:8000/api/resume', {
+                    method: 'POST',
+                    body: resumeText,
+                });
+
+                if (response.ok) {
+                    console.log('Resume details submitted successfully.');
+                    // Reset form fields if needed
+                } else {
+                    console.error('Error occurred while submitting resume details.');
+                }
+            } catch (error) {
+                console.error('Error occurred while submitting resume details:', error);
+            } finally {
+                setLoading(false);
+            }
+        }
+    };
+
     return (
         <div className="home">
             <div className="container">
-                <h1>Lets get improving</h1>
+                <h1>Let's get improving</h1>
                 <h3>What jobs are you interested in today?</h3>
                 <div className="form1-container">
                     <form className="form1">
@@ -41,18 +116,20 @@ const Home = () => {
                         <input type="text" id="projectImageURL" placeholder='Link your image' />
 
                         <label htmlFor="completionDate">Date of Completion:</label>
-                        <input type="text" id="completionDate" placeholder='dd/mm/yyyy'/>
+                        <input type="text" id="completionDate" placeholder='dd/mm/yyyy' />
 
                         <button type="submit">Add Project</button>
                     </form>
                 </div>
 
                 <div className="form3-container">
-                    <form className="form3">
+                    <form className="form3" onSubmit={handleSubmit}>
                         <label htmlFor="cvFile">Upload CV (PDF):</label>
-                        <input type="file" id="cvFile" />
+                        <input type="file" id="cvFile" onChange={handleFileChange} />
 
-                        <button type="submit">Upload</button>
+                        <button type="submit" disabled={!selectedFile || loading}>
+                            Upload
+                        </button>
                     </form>
                 </div>
             </div>
