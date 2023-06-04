@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-1dx^9)9bmh##062+w^q&jhl+o2c%*!+ru#m571^hy@5)ht2r#-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['http://localhost:3000','127.0.0.1']
 
 
 # Application definition
@@ -52,6 +52,9 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:3000',  # Replace with the actual origin of your frontend
+]
 ROOT_URLCONF = 'portfolio_dj.urls'
 
 TEMPLATES = [
