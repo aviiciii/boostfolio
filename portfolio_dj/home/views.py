@@ -5,7 +5,7 @@ from django.contrib.auth import authenticate, login, logout
 
 from .models import Projects, Jobs
 
-import openai
+# import openai
 import os
 
 # Create your views here.
@@ -166,7 +166,7 @@ def output(request):
 @csrf_exempt
 def resume_api(request):
     if request.method == "POST":
-        print(request.POST)
+        print(request.body)
 
         
 
