@@ -9,6 +9,8 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="{% static 'home/style.css' %}">
+        
+        <link rel="icon" href="{% static 'home/boost_folio_logo.svg' %}">
     </head>
     <body>
         <h1 id="page_head">Select Job to Generate Portfolio<h1>
@@ -18,7 +20,7 @@
             <select name="job_id">
 
                 {% for job in jobs %}
-                <option value="{{job.id}}">{{job.company}}- {{job.position}}</option>
+                <option value="{{job.id}}">{{job.company}} - {{job.position}}</option>
                 {% endfor %}
                 
             </select> 
