@@ -2,6 +2,13 @@
 
 BoostFolio is a web-based platform designed to enhance personal portfolios and assist users in tailoring their portfolios to specific job opportunities. It analyzes portfolios and CVs against job descriptions, providing tailored suggestions for improvement to boost users' prospects and help them achieve their career goals.
 
+The project is the **:trophy: Winner of the Best Beginners Hack** category in the [Hack Your Portfolio](https://hack-your-portfolio.devpost.com/) hackathon organized by MLH (Major League Hacking).
+
+## Demo & Submission
+
+You can watch the demo of the project on [YouTube](https://youtu.be/-YPzn3-8oQI).
+The project is sumbmitted to [Devpost](https://devpost.com/software/hack-your-portfolio-placeholder) for the hackathon.
+
 ## Inspiration
 
 The idea for BoostFolio originated from a challenge presented at a Hackathon, which focused on enhancing personal portfolios and aiding users in improving theirs. With diverse ideas and interests, it can be challenging to identify which projects will resonate most with potential employers who value different aspects. Furthermore, each job requires a unique approach, making the task of tailoring portfolios crucial.
@@ -48,11 +55,19 @@ To get started with BoostFolio, follow these steps:
 4. Run the backend server: `python manage.py runserver`
 5. Run the frontend development server: `npm start`
 6. Access BoostFolio in your web browser at `http://localhost:3000`. 
-## Screenshots<img width="960" alt="Screenshot 2023-06-04 173239" src="https://github.com/aviiciii/portfolio/assets/76479104/53a9c2a7-c0aa-43b5-b1bd-5b911572dd99">
-<img width="960" alt="Screenshot 2023-06-04 173328" src="https://github.com/aviiciii/portfolio/assets/76479104/4a3afe87-64ca-4289-a619-29b0f11c85a2">
+## Screenshots
 
+### Landing Page
+<img width="960" alt="Screenshot 2023-06-04 173239" src="https://github.com/aviiciii/portfolio/assets/76479104/53a9c2a7-c0aa-43b5-b1bd-5b911572dd99">
+
+### Form pages
+<img width="960" alt="Screenshot 2023-06-04 173328" src="https://github.com/aviiciii/portfolio/assets/76479104/4a3afe87-64ca-4289-a619-29b0f11c85a2">
 <img width="410" alt="Screenshot 2023-06-04 173403" src="https://github.com/aviiciii/portfolio/assets/76479104/c234f572-e2c7-4e23-b994-959f63d0eb08">
 <img width="410" alt="Screenshot 2023-06-04 173422" src="https://github.com/aviiciii/portfolio/assets/76479104/e7a0f632-d215-4504-bfc3-5881156c830a">
+
+### Output page
+<img width="1502" alt="Screenshot 2023-06-04 at 6 12 23 PM" src="https://github.com/aviiciii/portfolio/assets/88141521/ecbe9a4e-ae6c-4f3a-810d-aca32f976f7d">
+
 
 
 ## Contributors
